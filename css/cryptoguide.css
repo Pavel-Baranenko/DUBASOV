@@ -215,11 +215,15 @@ p+h4 {
   }
 }
 
-/* .fix {
-  position: sticky;
-  top: 0;
-  animation: fix 0.3s linear;
-} */
+
+
+@media (min-width:1080px) {
+  .fix {
+    position: sticky;
+    top: 0;
+    animation: fix 0.3s linear;
+  }
+}
 
 @keyframes fix {
   0% {
