@@ -16,6 +16,12 @@
     <header class="header">
       <div class="header__top">
         <h2>КРИПТОГАЙД</h2>
+        <a href="/" class="close__guide">
+          <svg width="37" height="38" viewBox="0 0 37 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="36.5118" y1="1.35157" x2="1.35516" y2="36.9045" stroke="white" />
+            <line x1="36.2803" y1="36.3555" x2="0.727318" y2="1.19891" stroke="white" />
+          </svg>
+        </a>
       </div>
     </header>
     <div class="header__links">
@@ -30,13 +36,13 @@
       <a href="#part-8">Заповедь 8</a>
       <a href="#part-9">Заповедь 9</a>
       <a href="#part-10">Заповедь 10</a>
-      <a href="#bunus">Bonus</a>
+      <a href="#bonus">Bonus</a>
       <a href="#important">Важные ресурсы </a>
       <a href="#sources">Источники знаний</a>
     </div>
     <section class="black" id="start">
       <h6>ВСТУПЛЕНИЕ</h6>
-      <h1>10 ЗАПОВЕДЕЙ КРИПТОВАЛЮТНОГО РЫНКА <span>by Artur Dubasov</span></h1>
+      <h1>10 ЗАПОВЕДЕЙ <i class="wbreak">КРИПТОВАЛЮТНОГО</i> РЫНКА<span>by Artur Dubasov</span></h1>
     </section>
     <section class="white">
       <p>
@@ -632,26 +638,33 @@
         посредников. Это можно делать только через резидентов Парка высоких технологий (ПВТ). Грубо говоря, речь идет о
         вводе и выводе денег.
         <br />
+        <br />
         Рекомендуем внимательно изучить Декрет №8 "О развитии цифровой экономики".
+        <br />
         <br />
         Биржа, на которой можно купить криптовалюту и через которую её можно вывести обратно легально:
         <a href="https://dzengi.com/">https://dzengi.com/</a>.
+        <br />
         <br />
         На момент написания материала я позвонил и уточнил, соблюдают ли они все нормативные требования и являются ли
         резидентом ПВТ.
         Ответ биржи был утвердительным.
         <br />
+        <br />
         Если посмотреть в целом, то Беларусь выгодно отличается от многих государств в плане демократизации процессов,
         связанных
         с криптовалютой.
         <br />
+        <br />
         Рекомендую соблюдать действующее законодательство страны,
         в которой ты живёшь, ибо «Закон суров, но это закон».
+        <br />
         <br />
         Представим, что ты хочешь сделать круг: купить официально криптовалюту через dzengi.com > отправить USDT,
         допустим, на OKX > купить там нужный токен > вывести его на свой кошелёк > дождаться иксов и ввести обратно на
         OKX, продав с прибылью > вывести USDT обратно на dzengi.com и официально обналичить их. Что в этом случае по
         закону? Уточняй в налоговой по месту жительства.
+        <br />
         <br />
         Исключительно в обязательном порядке, потому что сегодня это может быть можно, а завтра вступят изменения в
         действующем законодательстве, и окажется, что моя информация устарела.
@@ -685,7 +698,7 @@
           скачай оттуда нужный кошелек. Помни о заповеди 3.
         </strong>
       </p>
-      <span class="medium">Блокчейн-эксплореры</span>
+      <span class="medium ttu">Блокчейн-эксплореры</span>
       <p>
         Вбиваешь в гугл «блокчейн-экплорер и нужную сеть» ;)
         <br />
@@ -693,8 +706,8 @@
         Блокчейн-эксплорер CHIA NETWORK> результат <a href="https://xchscan.com/ru">https://xchscan.com/ru</a>
       </p>
       <div>
-        <span class="medium">Ончейн-анализ</span>
-        <p class="medium">
+        <span class="medium ttu mt50 dib">Ончейн-анализ</span>
+        <p class="medium ttu">
           *это уже как окрепнешь в базовых знаниях
         </p>
       </div>
@@ -881,12 +894,20 @@
     const headerLinks = document.querySelector('.header__links')
     let currentScroll = 0
     window.addEventListener('scroll', () => {
-      if (window.scrollY < currentScroll) {
-        headerLinks.classList.add('fix')
+      if (window.innerWidth > 1080) {
+        if (window.scrollY < currentScroll) {
+          headerLinks.classList.add('fix')
+        } else {
+          headerLinks.classList.remove('fix')
+        }
+        currentScroll = window.scrollY
       } else {
-        headerLinks.classList.remove('fix')
+        if (window.scrollY > 105) {
+          headerLinks.classList.add('fix')
+        } else {
+          headerLinks.classList.remove('fix')
+        }
       }
-      currentScroll = window.scrollY
     })
   </script>
 </body>

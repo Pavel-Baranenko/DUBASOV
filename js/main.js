@@ -1,10 +1,18 @@
 
 const header = document.querySelector('.header')
 let lastScroll = 0
+let moveScroll = false
 window.addEventListener('scroll', () => {
   if (window.scrollY < lastScroll) {
-    header.classList.add('fix')
+    moveScroll = true
+    setTimeout(() => {
+      if (moveScroll) {
+        header.classList.add('fix')
+      }
+    }, 500);
+
   } else {
+    moveScroll = false
     header.classList.remove('fix')
   }
   lastScroll = window.scrollY
@@ -32,10 +40,6 @@ function observeElements(selector) {
 }
 
 observeElements('.animate-item');
-
-
-
-
 
 
 const btn = document.querySelector('.navbar-menu')
