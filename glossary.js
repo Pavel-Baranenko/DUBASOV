@@ -1,3 +1,76 @@
+const header = document.querySelector(".header");
+const lang = document.querySelector('.lang');
+
+lang.addEventListener('click', () => {
+  if (lang.checked) {
+    document.querySelector('.en').classList.add('active')
+    document.querySelector('.rus').classList.remove('active')
+  }
+  else {
+    document.querySelector('.rus').classList.add('active')
+    document.querySelector('.en').classList.remove('active')
+
+  }
+})
+
+const menuOpen = document.querySelectorAll('.menu__btn');
+const menuCloose = document.querySelector('.cloose-menu');
+
+menuOpen.forEach(e => {
+  e.addEventListener('click', () => {
+    document.querySelector('.header__menu').classList.add('active');
+  })
+})
+
+menuCloose.addEventListener('click', () => {
+  document.querySelector('.header__menu').classList.remove('active');
+})
+
+const links = document.querySelectorAll('.header__menu-link');
+
+links.forEach((el) => {
+  el.addEventListener('click', () => {
+    document.querySelector('.header__menu').classList.remove('active');
+  })
+})
+
+const linksBox = document.querySelectorAll('.header__menu-link-item');
+
+linksBox.forEach((el) => {
+  el.addEventListener('click', () => {
+    document.querySelector('.header__menu').classList.remove('active');
+  })
+})
+
+
+const consulting = document.querySelector('.header__menu-link-wrap');
+
+consulting.querySelector('.link-plus').addEventListener('click', () => {
+  consulting.classList.toggle('active')
+})
+
+function GetElementsOnClick({ x, y }) {
+  let elements = document.elementsFromPoint(x, y)
+
+  if (elements[3].classList.contains('hide-search')) {
+    document.querySelector('.glossary__search').classList.toggle('hide')
+  }
+}
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > document.querySelector('.glossary-hero').clientHeight) {
+    header.classList.add('glos-header')
+    header.addEventListener('click', GetElementsOnClick)
+
+  } else {
+    if (header.classList.contains('glos-header')) {
+      header.removeEventListener('click', GetElementsOnClick)
+      header.classList.remove('glos-header')
+    }
+  }
+})
+
+
 const glossary = {
   "A": [
     {
@@ -715,10 +788,10 @@ function RenderList(list) {
     result.appendChild(item)
 
     item.className = 'result__item'
-    item.id = e
 
     const h6 = document.createElement('h6')
     h6.innerHTML = e
+    h6.id = e
     item.appendChild(h6)
 
     list[e].forEach(f => {
@@ -737,7 +810,7 @@ RenderList(glossary)
 
 const Input = document.getElementById('search-input')
 
-Input.addEventListener('change', () => {
+Input.addEventListener('input', () => {
   let val = Input.value
 
   let searched = {}
@@ -746,7 +819,23 @@ Input.addEventListener('change', () => {
     glossary[e].forEach(f => {
       if ((f.heading.toLowerCase()).includes(val.toLowerCase()) || (f.text.toLowerCase()).includes(val.toLowerCase())) {
         if (!searched[e]) searched[e] = []
-        searched[e].push({ heading: f.heading, text: f.text })
+
+
+        function highlightWord(text, word, color = 'blue') {
+          if (!word) return text;
+
+          const escapedWord = word.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+          const regex = new RegExp(`(?<!<[^>]*)${escapedWord}`, 'gi');
+
+          return text.replace(regex, match =>
+            `<span class="blue-text">${match}</span>`
+          );
+        }
+
+        let heading = highlightWord(f.heading, val)
+        let text = highlightWord(f.text, val)
+
+        searched[e].push({ heading: heading, text: text })
       }
     })
   })
