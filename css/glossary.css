@@ -2418,8 +2418,6 @@ input:checked+label:after {
 }
 
 .hide {
-  top: -196px;
-
   .hide-search {
     transform: translateX(-50%) rotate(-180deg);
   }
@@ -2509,8 +2507,9 @@ input:checked+label:after {
 }
 
 @media (max-width:1080px) {
-  .hide {
-    top: -693px;
+
+  .header__menu {
+    height: 100svh;
   }
 
   .search {
@@ -2548,4 +2547,129 @@ input:checked+label:after {
   background-color: #3c42d0;
   color: #fff !important;
   font-size: inherit !important;
+}
+
+.result {
+  overflow-x: hidden;
+}
+
+
+@media (max-width:1080px) {
+
+  .glossary-box {
+    .container {
+      padding: 0 15px;
+    }
+  }
+}
+
+.glossary-swiper {
+  width: 100svw;
+  min-height: 100svh;
+  color: #000;
+
+  .swiper-wrapper {
+    position: relative;
+    min-height: 100svh;
+  }
+
+  .swiper-slide {
+    min-height: 100svh;
+    max-height: 100svh;
+    overflow-y: scroll;
+    color: #000;
+  }
+
+}
+
+.glos-wrap {
+  .swiper-pagination {
+    opacity: 1 !important;
+    transition: all 0.1s ease;
+    position: absolute;
+    top: 70px;
+    left: 50% !important;
+    right: unset !important;
+    bottom: unset;
+    transform: translateX(-50%);
+  }
+
+  .swiper-pagination-bullet {
+    background: #E6E6E6 !important;
+    opacity: 1 !important;
+    width: 20.85px;
+    height: 20.85px;
+  }
+
+  .swiper-pagination-bullet-active {
+    background: #3C42D0 !important;
+  }
+
+  .pagination-fix {
+    opacity: 0 !important;
+    pointer-events: none;
+  }
+}
+
+.glos-info {
+  padding: 250px 0;
+
+  span {
+    font-size: 48px;
+  }
+
+  p {
+    font-size: 24px;
+  }
+
+  p+span {
+    margin-top: 73px;
+    display: inline-block;
+  }
+
+  span+p {
+    margin-top: 43px;
+  }
+}
+
+.glos-info-box {
+  display: flex;
+  gap: 73px;
+
+  h6 {
+    font-weight: 400;
+    font-size: 48px;
+    min-width: 335px;
+  }
+}
+
+@media (max-width:1080px) {
+  .glos-info {
+    padding: 150px 0;
+
+    span {
+      font-size: 32px;
+    }
+
+    p {
+      font-size: 15px;
+    }
+
+    p+span {
+      margin-top: 45px;
+    }
+
+    span+p {
+      margin-top: 20px;
+    }
+  }
+
+  .glos-info-box {
+    flex-direction: column;
+
+    h6 {
+      width: 100%;
+      font-size: 32px;
+    }
+  }
 }

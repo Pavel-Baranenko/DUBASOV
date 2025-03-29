@@ -52,24 +52,56 @@ consulting.querySelector('.link-plus').addEventListener('click', () => {
 function GetElementsOnClick({ x, y }) {
   let elements = document.elementsFromPoint(x, y)
 
-  if (elements[3].classList.contains('hide-search')) {
-    document.querySelector('.glossary__search').classList.toggle('hide')
-  }
+  if (elements[3].classList.contains('hide-search')) hide()
 }
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > document.querySelector('.glossary-hero').clientHeight) {
-    header.classList.add('glos-header')
-    header.addEventListener('click', GetElementsOnClick)
+let slide = document.querySelector('.first-slide')
 
-  } else {
-    if (header.classList.contains('glos-header')) {
-      header.removeEventListener('click', GetElementsOnClick)
-      header.classList.remove('glos-header')
+slide.addEventListener('scroll', () => {
+
+  if (slide.scrollTop > 70) {
+    document.querySelector('.swiper-pagination').classList.add('pagination-fix')
+
+    if (slide.scrollTop > document.querySelector('.glossary-hero').clientHeight) {
+      header.classList.add('glos-header')
+      header.addEventListener('click', GetElementsOnClick)
     }
+    else {
+      if (header.classList.contains('glos-header')) {
+        header.removeEventListener('click', GetElementsOnClick)
+        header.classList.remove('glos-header')
+      }
+    }
+  } else {
+    document.querySelector('.swiper-pagination').classList.remove('pagination-fix')
   }
 })
 
+// window.addEventListener('scroll', () => {
+//   if (window.scrollY > 70) {
+//     document.querySelector('.swiper-pagination').classList.add('pagination-fix')
+
+//     if (window.scrollY > document.querySelector('.glossary-hero').clientHeight) {
+//       header.classList.add('glos-header')
+//       header.addEventListener('click', GetElementsOnClick)
+//     }
+//     else {
+//       if (header.classList.contains('glos-header')) {
+//         header.removeEventListener('click', GetElementsOnClick)
+//         header.classList.remove('glos-header')
+//       }
+//     }
+//   } else {
+//     document.querySelector('.swiper-pagination').classList.remove('pagination-fix')
+//   }
+// })
+
+var swiper = new Swiper(".glossary-swiper", {
+  pagination: {
+    el: ".swiper-pagination",
+  },
+  loop: true
+});
 
 const glossary = {
   "A": [
@@ -780,7 +812,6 @@ const glossary = {
 
 const result = document.getElementById('result')
 
-
 function RenderList(list) {
   result.innerHTML = ''
   Object.keys(list).forEach(e => {
@@ -845,6 +876,17 @@ Input.addEventListener('input', () => {
 
 const hideBtn = document.querySelector('.hide-search')
 
-hideBtn.addEventListener('click', () => {
-  document.querySelector('.glossary__search').classList.toggle('hide')
-})
+hideBtn.addEventListener('click', () => hide())
+
+let searchBox = document.querySelector('.glossary__search')
+
+
+function hide() {
+  if (searchBox.classList.contains('hide')) {
+    searchBox.classList.remove('hide')
+    searchBox.style.top = 0
+  } else {
+    searchBox.classList.add('hide')
+    searchBox.style.top = -(document.querySelector('.glossary__search-box').clientHeight + 35) + 'px'
+  }
+}
