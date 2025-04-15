@@ -96,10 +96,12 @@ slide.addEventListener('scroll', () => {
 //   }
 // })
 
-var swiper = new Swiper(".glossary-swiper", {
+const swiper = new Swiper(".glossary-swiper", {
   pagination: {
     el: ".swiper-pagination",
   },
+  parallax: true,
+  fade: true,
   loop: true
 });
 
