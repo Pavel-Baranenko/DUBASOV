@@ -106,7 +106,7 @@ button {
 }
 
 .container {
-  max-width: 1440;
+  max-width: 1720px;
   margin: 0 auto;
   padding: 0 64px
 }
@@ -2391,7 +2391,7 @@ input:checked+label:after {
 
 .glossary__search {
   background-color: #000;
-  padding: 35px 0 76px 0;
+  padding: 45px 0 76px 0;
   position: sticky;
   top: 0;
   transition: all 0.3s linear;
@@ -2671,5 +2671,13 @@ input:checked+label:after {
       width: 100%;
       font-size: 32px;
     }
+  }
+
+  .glossary__inner {
+    padding: 0;
+  }
+
+  .swiper-pagination {
+    pointer-events: none;
   }
 }
