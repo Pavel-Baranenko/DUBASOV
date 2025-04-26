@@ -2695,3 +2695,25 @@ input:checked+label:after {
     pointer-events: none;
   }
 }
+
+@media (max-width:1080px) {
+  .glossary__inner h2 {
+    color: #3c42d0 !important;
+  }
+
+  .glossary__inner h1 {
+    color: #000 !important;
+  }
+
+  .result {
+    color: #000 !important;
+  }
+
+  .result__item span {
+    color: #3c42d0 !important;
+  }
+
+  .result__item span.blue-text {
+    color: #fff !important;
+  }
+}
