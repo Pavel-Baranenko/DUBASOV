@@ -2516,7 +2516,7 @@ input:checked+label:after {
     max-width: calc(100svw - 30px);
   }
 
-  .glossary__search {
+  .glossary__search.hide {
     max-height: 100svh;
     overflow-y: scroll;
   }
