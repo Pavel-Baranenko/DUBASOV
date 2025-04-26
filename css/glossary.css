@@ -2512,14 +2512,6 @@ input:checked+label:after {
     height: 100svh;
   }
 
-  .search {
-    max-width: calc(100svw - 30px);
-  }
-
-  .glossary__search.hide {
-    max-height: 100svh;
-    overflow-y: scroll;
-  }
 
   .result {
     padding: 50px 0;
@@ -2560,7 +2552,6 @@ input:checked+label:after {
 
 
 @media (max-width:1080px) {
-
   .glossary-box {
     .container {
       padding: 0 15px;
