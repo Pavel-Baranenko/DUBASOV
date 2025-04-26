@@ -3088,7 +3088,7 @@ function RenderList(list, searchParam) {
     const item = document.createElement('div')
     result.appendChild(item)
 
-    item.className = 'result__item'
+    item.classList.add('result__item')
 
     const h6 = document.createElement('h6')
     h6.innerHTML = e
@@ -3104,7 +3104,7 @@ function RenderList(list, searchParam) {
     </div>`
     })
   })
-  result.scrollIntoView(true)
+  // result.scrollIntoView(true)
 }
 
 RenderList(glossary)
