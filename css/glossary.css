@@ -2480,7 +2480,7 @@ input:checked+label:after {
     font-weight: 500;
     font-size: 60px;
     line-height: 92%;
-    color: #000;
+    color: #3C42D0;
   }
 
   p {
@@ -2513,7 +2513,12 @@ input:checked+label:after {
   }
 
   .search {
-    max-width: 100%;
+    max-width: calc(100svw - 30px);
+  }
+
+  .glossary__search {
+    max-height: 100svh;
+    overflow-y: scroll;
   }
 
   .result {
