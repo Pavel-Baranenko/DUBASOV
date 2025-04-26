@@ -2697,12 +2697,20 @@ input:checked+label:after {
 }
 
 @media (max-width:1080px) {
+  .search {
+    max-width: 320px;
+  }
+
   .glossary__inner h2 {
     color: #3c42d0 !important;
+    font-size: clamp(32px, 10vw, 206px);
+    max-width: 100%;
   }
 
   .glossary__inner h1 {
+    max-width: 100%;
     color: #000 !important;
+    font-size: clamp(32px, 10vw, 164px);
   }
 
   .result {
