@@ -2480,7 +2480,7 @@ input:checked+label:after {
     font-weight: 500;
     font-size: 60px;
     line-height: 92%;
-    color: #3C42D0;
+    color: #000;
   }
 
   p {
@@ -2718,10 +2718,18 @@ input:checked+label:after {
   }
 
   .result__item span {
-    color: #3c42d0 !important;
+    color: #000 !important;
+  }
+
+  .result__item span.blue-span {
+    color: #3c42d0;
   }
 
   .result__item span.blue-text {
     color: #fff !important;
   }
+}
+
+.result__item span.blue-span {
+  color: #3c42d0;
 }
