@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
 
 * {
   box-sizing: border-box;
@@ -70,29 +70,27 @@ body {
   flex-direction: column;
   gap: clamp(15px, 2vw, 35px);
   background-color: #F1F1F1;
-
-  span {
-    font-size: clamp(22px, 5vw, 60px);
-    margin-bottom: 40px;
-  }
-
-  p {
-    font-size: clamp(16px, 5vw, 35px);
-  }
 }
 
+.white span {
+  font-size: clamp(22px, 5vw, 60px);
+  margin-bottom: 40px;
+}
+
+.white p {
+  font-size: clamp(16px, 5vw, 35px);
+}
 
 h1 span {
   font-size: clamp(32px, 10vw, 60px);
 }
 
-@media (max-width:1080px) {
+@media (max-width: 1080px) {
   h1 span {
     display: block;
     width: 100%;
     text-align: right;
   }
-
 }
 
 p+span {
@@ -103,21 +101,19 @@ p+span {
   display: flex;
   flex-direction: column;
   gap: 15px;
-
-  span {
-    display: inline-block;
-    font-size: 50px;
-    margin-bottom: 0;
-  }
-
-  p {
-    padding: 0 clamp(15px, 2vw, 50px);
-  }
-
-
 }
 
-@media (min-width:1080px) {
+.number-list span {
+  display: inline-block;
+  font-size: 50px;
+  margin-bottom: 0;
+}
+
+.number-list p {
+  padding: 0 clamp(15px, 2vw, 50px);
+}
+
+@media (min-width: 1080px) {
   .left-text {
     padding-left: 30%;
   }
@@ -146,7 +142,7 @@ li {
 li::before {
   display: inline-block;
   margin-right: 5px;
-  content: counter(item)'. ';
+  content: counter(item) ". ";
   counter-increment: item;
   font-size: clamp(18px, 5vw, 48px);
   font-weight: 600;
@@ -159,7 +155,6 @@ li::before {
 .fz40 {
   font-size: 40px !important;
 }
-
 
 .mta {
   margin-top: auto;
@@ -199,11 +194,11 @@ h4 {
   font-size: clamp(25px, 5vw, 60px);
   font-weight: 600;
   text-transform: uppercase;
+}
 
-  span {
-    font-weight: 600;
-    font-size: clamp(20px, 5vw, 45px) !important;
-  }
+h4 span {
+  font-weight: 600;
+  font-size: clamp(20px, 5vw, 45px) !important;
 }
 
 p+h4 {
@@ -226,18 +221,16 @@ p+h4 {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   gap: 10px 30px;
-
-  a {
-    text-decoration: none;
-    color: #000000;
-    font-size: 25px;
-    font-weight: 500;
-  }
 }
 
+.header__links a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 25px;
+  font-weight: 500;
+}
 
-
-@media (min-width:1080px) {
+@media (min-width: 1080px) {
   .fix {
     position: sticky;
     top: 0;
@@ -257,14 +250,14 @@ p+h4 {
   }
 }
 
-@media (max-width:1080px) {
+@media (max-width: 1080px) {
   .header__links {
     grid-template-columns: repeat(4, 1fr);
     padding: 10px 10px 15px 10px;
+  }
 
-    a {
-      font-size: 12px;
-    }
+  .header__links a {
+    font-size: 12px;
   }
 
   .fix {
@@ -279,11 +272,11 @@ p+h4 {
   .header__top {
     font-size: 20px;
     padding: 30px 10px 50px 10px;
+  }
 
-    svg {
-      width: 20px;
-      height: auto;
-    }
+  .header__top svg {
+    width: 20px;
+    height: auto;
   }
 
   .black {
@@ -295,53 +288,49 @@ p+h4 {
   .white {
     padding: 60px 10px;
     gap: 20px;
-
-    span {
-      margin-bottom: 10px;
-      font-size: 35px;
-      line-height: 100%;
-    }
-
-    .fz50 {
-      font-size: 22px;
-    }
-
-    .fz40 {
-      font-size: 15px;
-    }
-
-    p {
-      font-size: 15px;
-    }
-
-    li {
-      font-size: 15px;
-
-      &::before {
-        font-size: 15px;
-      }
-    }
-
-    .number-list {
-      span {
-        font-size: 25px;
-      }
-
-      .mla {
-        display: inline-block;
-        margin-left: auto;
-      }
-    }
-
-    p+span {
-      margin-top: 10px;
-    }
   }
 
-  #part-8 {
-    span {
-      font-size: 36px;
-    }
+  .white span {
+    margin-bottom: 10px;
+    font-size: 35px;
+    line-height: 100%;
+  }
+
+  .white .fz50 {
+    font-size: 22px;
+  }
+
+  .white .fz40 {
+    font-size: 15px;
+  }
+
+  .white p {
+    font-size: 15px;
+  }
+
+  .white li {
+    font-size: 15px;
+  }
+
+  .white li::before {
+    font-size: 15px;
+  }
+
+  .white .number-list span {
+    font-size: 25px;
+  }
+
+  .white .number-list .mla {
+    display: inline-block;
+    margin-left: auto;
+  }
+
+  .white p+span {
+    margin-top: 10px;
+  }
+
+  #part-8 span {
+    font-size: 36px;
   }
 
   h1 span {
@@ -356,26 +345,24 @@ p+h4 {
 
 .header-line-link span {
   position: relative;
+}
 
-  &::after {
-    position: absolute;
-    display: block;
-    content: "";
-    width: 100%;
-    left: 0;
-    bottom: -1px;
-    height: 2px;
-    background-color: rgba(0, 0, 0, 0);
-  }
+.header-line-link span::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  left: 0;
+  bottom: -1px;
+  height: 2px;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 .header-line-link.active span:after {
   background-color: #000;
 }
 
-
-
-@media (max-width:1080px) {
+@media (max-width: 1080px) {
   .header__links.fix {
     max-width: 100svw;
     overflow-x: scroll;
@@ -387,3 +374,16 @@ p+h4 {
     overflow-x: hidden;
   }
 }
+
+.flex-inline {
+  display: flex;
+}
+
+.flex-inline svg {
+  height: 60px;
+  margin-top: 3px;
+  width: auto;
+  margin-left: 20px;
+}
+
+/*# sourceMappingURL=9af84fcabd0e01a395c2e5ae_1746301719.css.map */
