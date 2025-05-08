@@ -2549,31 +2549,51 @@ input:checked+label:after {
 
 .glossary-swiper {
   width: 100svw;
-  min-height: 100svh;
+  min-height: calc(100svh - 64px);
+  overflow: unset !important;
   color: #000;
 }
 
 .glossary-swiper .swiper-wrapper {
   position: relative;
-  min-height: 100svh;
+  overflow: unset !important;
+  min-height: calc(100svh - 64px);
+}
+
+.glossary-box {
+  overflow-x: hidden !important;
+  max-width: 100svw;
+}
+
+.glossary-box .header {
+  max-width: 100svw;
 }
 
 .glossary-swiper .swiper-slide {
-  min-height: 100svh;
-  max-height: 100svh;
+  min-height: calc(100svh - 64px);
+  max-height: calc(100svh - 64px);
   overflow-y: scroll;
+  height: fit-content !important;
   color: #000;
+}
+
+.glos-wrap {
+  max-width: 100svw;
+  z-index: 999;
+  margin-top: 64px;
 }
 
 .glos-wrap .swiper-pagination {
   opacity: 1 !important;
   transition: all 0.1s ease;
   position: absolute;
-  top: 70px;
+  top: -50px;
+  height: 40px;
   left: 50% !important;
   right: unset !important;
   bottom: unset;
   transform: translateX(-50%);
+  z-index: 999999999999999;
 }
 
 .glos-wrap .swiper-pagination-bullet {
@@ -2593,7 +2613,7 @@ input:checked+label:after {
 }
 
 .glos-info {
-  padding: 250px 0;
+  padding: 190px 0 250px 0;
 }
 
 .glos-info span {
@@ -2626,7 +2646,7 @@ input:checked+label:after {
 
 @media (max-width: 1080px) {
   .glos-info {
-    padding: 150px 0;
+    padding: 90px 0 150px 0;
   }
 
   .glos-info span {
@@ -2656,10 +2676,6 @@ input:checked+label:after {
 
   .glossary__inner {
     padding: 0;
-  }
-
-  .swiper-pagination {
-    pointer-events: none;
   }
 }
 
@@ -2700,5 +2716,3 @@ input:checked+label:after {
 .result__item span.blue-span {
   color: #3c42d0;
 }
-
-/*# sourceMappingURL=d352dc22c4d8b6c2b6fbee78_1746301773.css.map */

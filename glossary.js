@@ -41,37 +41,40 @@ consulting.querySelector('.link-plus').addEventListener('click', () => {
 
 function GetElementsOnClick({ x, y }) {
   let elements = document.elementsFromPoint(x, y)
-
   if (elements[3].classList.contains('hide-search')) hide()
+  let bullet = elements.find(e => e.classList.contains('swiper-pagination-bullet'))
+  if (bullet) {
+    bullet.click()
+  }
 }
 
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 70) {
-    document.querySelector('.swiper-pagination').classList.add('pagination-fix')
+header.addEventListener('click', GetElementsOnClick)
 
-    if (window.scrollY > document.querySelector('.glossary-hero').clientHeight) {
-      header.classList.add('glos-header')
-      header.addEventListener('click', GetElementsOnClick)
+window.addEventListener('scroll', () => {
+  if (window.scrollY > (document.querySelector('.glossary-hero').clientHeight + 64)) {
+    header.classList.add('glos-header')
+  }
+  else {
+    if (header.classList.contains('glos-header')) {
+      header.classList.remove('glos-header')
     }
-    else {
-      if (header.classList.contains('glos-header')) {
-        header.removeEventListener('click', GetElementsOnClick)
-        header.classList.remove('glos-header')
-      }
-    }
-  } else {
-    document.querySelector('.swiper-pagination').classList.remove('pagination-fix')
   }
 })
 
-const swiper = new Swiper(".glossary-swiper", {
+const glosSwiper = new Swiper(".glossary-swiper", {
   pagination: {
     el: ".swiper-pagination",
+    clickable: true
   },
   parallax: true,
   fade: true,
   loop: true
 });
+
+// glosSwiper.on('slideChange', function () {
+//   console.log('Current slide index:', glosSwiper.activeIndex);
+// });
+
 
 const glossary = {
   "А": [
@@ -2378,7 +2381,7 @@ const glossary = {
       "text": "это конкретная цена актива на рынке, которая может служить точкой сопротивления или поддержки, влияя на дальнейшее движение цены."
     },
     {
-      "heading": "<span class='blue-span'>Централизация (Centralized)</span>",
+      "heading": "Централизация (Centralized)",
       "text": "это модель управления, при которой все операции и принятие решений контролируются одной центральной организацией или узлом. Такая модель обеспечивает высокую скорость и простоту выполнения транзакций, но может снижать уровень безопасности и конфиденциальности, а также создавать единую точку отказа."
     },
     {
@@ -2654,7 +2657,7 @@ const glossary = {
       "text": "это концепция, которая объединяет традиционные централизованные финансовые услуги с децентрализованными приложениями. CeDeFi позволяет пользователям получить преимущества децентрализации, такие как прозрачность и доступность, при этом сохраняя элементы централизованного контроля для повышения удобства и соблюдения регуляций."
     },
     {
-      "heading": "CEX (Centralized Exchange)",
+      "heading": "<span class='blue-span'>CEX (Centralized Exchange)</span>",
       "text": "это централизованная платформа для торговли криптовалютами, которая управляется оператором или компанией, выступающей посредником между покупателями и продавцами. CEX берет на себя функции сопоставления ордеров, хранения пользовательских активов, обеспечения ликвидности и предоставления обменных услуг. Пользователи не имеют прямого контроля над своими средствами, так как приватные ключи хранятся на платформе. Такие биржи часто предлагают дополнительные услуги, включая маржинальную торговлю, деривативы и стейкинг."
     },
     {
@@ -2672,6 +2675,10 @@ const glossary = {
       "text": "это инвестиционная стратегия, при которой фиксированные суммы регулярно инвестируются в финансовый актив (например, криптовалюту) независимо от его текущей цены. Такой подход помогает снизить влияние волатильности рынка на процесс покупки и со временем сгладить среднюю стоимость приобретенных активов."
     },
     {
+      "heading": "DeFAI(Decentralized Finance + Artificial Intelligence)",
+      "text": "это объединение децентрализованных финансов(DeFi) с технологиями искусственного интеллекта(AI).Данное сочетание позволяет интегрировать децентрализованные финансовые протоколы с ИИ создавая более защищенные и эффективные решения."
+    },
+    {
       "heading": "DePIN (Decentralized Physical Infrastructure Networks)",
       "text": "это концепция децентрализованных физических инфраструктурных сетей, которая объединяет блокчейн технологии с реальными физическими объектами и инфраструктурой, такими как сети связи, устройства Интернета вещей (IoT), энергетические системы и другие виды инфраструктуры. Участники таких сетей совместно создают, управляют и поддерживают инфраструктуру, получая за это вознаграждение в виде токенов или других цифровых активов."
     },
@@ -2681,7 +2688,7 @@ const glossary = {
     },
     {
       "heading": "DEX (Decentralized Exchange)",
-      "text": "это платформа, в основе которой лежит идея обмена криптовалют без участия централизованных посредников. Все механизмы взаимодействий запрограммированы в смарт-контрактах."
+      "text": "это децентрализованная биржа, в основе которой лежит идея обмена криптовалют без участия централизованных посредников. Все механизмы взаимодействий запрограммированы в смарт-контрактах."
     },
     {
       "heading": "DLT (Distributed Ledger Technology)",
@@ -3082,7 +3089,7 @@ const glossary = {
 
 const result = document.getElementById('result')
 
-function RenderList(list, searchParam) {
+function RenderList(list) {
   result.innerHTML = ''
   Object.keys(list).forEach(e => {
     const item = document.createElement('div')

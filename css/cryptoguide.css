@@ -362,19 +362,6 @@ p+h4 {
   background-color: #000;
 }
 
-@media (max-width: 1080px) {
-  .header__links.fix {
-    max-width: 100svw;
-    overflow-x: scroll;
-    position: fixed;
-    display: flex;
-  }
-
-  .wrapper {
-    overflow-x: hidden;
-  }
-}
-
 .flex-inline {
   display: flex;
 }
@@ -386,4 +373,29 @@ p+h4 {
   margin-left: 20px;
 }
 
-/*# sourceMappingURL=9af84fcabd0e01a395c2e5ae_1746301719.css.map */
+@media (max-width: 1080px) {
+  .header__links.fix {
+    max-width: 100svw;
+    overflow-x: scroll;
+    position: fixed;
+    display: flex;
+  }
+
+  .wrapper {
+    overflow-x: hidden;
+  }
+
+  .flex-inline {
+    align-items: center;
+  }
+
+  .flex-inline svg {
+    height: 40px;
+    margin-top: -8px;
+    margin-left: 10px;
+  }
+
+  .word-wrap {
+    font-size: 32px;
+  }
+}
