@@ -43,15 +43,19 @@ observeElements('.animate-item');
 
 
 const btn = document.querySelector('.navbar-menu')
+const closeBtn = document.querySelector('.header-menu-close')
 const links = document.querySelectorAll('.header__link')
+const headerMenu = document.querySelector('.header-menu-wrap')
 
-if (window.innerWidth < 1080) {
-  btn.addEventListener('click', () => {
-    document.querySelector('.navbar').classList.toggle('open-menu')
+btn.addEventListener('click', () => {
+  headerMenu.classList.add('open-menu')
+})
+links.forEach(e => {
+  e.addEventListener('click', () => {
+    headerMenu.classList.remove('open-menu')
   })
-  links.forEach(e => {
-    e.addEventListener('click', () => {
-      document.querySelector('.navbar').classList.remove('open-menu')
-    })
-  })
-}
+})
+closeBtn.addEventListener('click', () => {
+  headerMenu.classList.remove('open-menu')
+})
+

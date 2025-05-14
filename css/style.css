@@ -788,59 +788,6 @@ h5 {
     align-items: flex-start !important;
   }
 
-  .langs {
-    position: relative;
-    z-index: 99999;
-  }
-
-  .open-menu {
-    position: fixed;
-    z-index: 999;
-    width: 100svw;
-    right: 0;
-    height: 100svh;
-    top: 20px;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 0 15px 0 0;
-    background-color: #000;
-    animation: openMenu .3s linear;
-  }
-
-  .open-menu::after {
-    position: absolute;
-    width: 100%;
-    height: 21px;
-    background-color: #000;
-    right: 0;
-    top: -20px;
-    pointer-events: none;
-    content: "";
-  }
-
-  .open-menu .navbar-menu-wrap {
-    width: auto;
-  }
-
-  .open-menu * {
-    transition: all 0s;
-  }
-
-  .open-menu .header__link {
-    display: block;
-  }
-
-  .open-menu .navbar-menu {
-    margin-left: auto;
-  }
-
-  .open-menu .navbar-menu-wrap {
-    padding: 50px 20px 20px 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-  }
-
   .investment {
     flex-direction: column;
   }
@@ -1161,20 +1108,95 @@ h5 {
   }
 }
 
-@keyframes openMenu {
-  0% {
-    border-radius: 4px 4px 4px 500px;
-    height: fit-content;
-    opacity: 0.7;
-    width: 30px;
-    color: rgba(59, 59, 59, 0);
-  }
 
-  100% {
-    border-radius: 4px;
-    height: calc(100svh -30px);
-    opacity: 1;
-    color: #fff;
-    width: calc(100svw - 20px);
-  }
+.header-menu-wrap {
+  display: flex;
+  transform: translateX(100%);
+  flex-direction: column;
+  width: 100svw;
+  height: 100svh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background: #000;
+  z-index: 999;
+  padding: 20px 15px;
+}
+
+.header-menu-wrap.open-menu {
+  transform: translateX(0);
+}
+
+.header-menu-wrap .langs {
+  opacity: 0;
+  transition: all 0.7s linear;
+}
+
+.header-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  opacity: 0;
+  transition: all 0.7s linear;
+}
+
+.header-menu-wrap.open-menu .langs {
+  opacity: 1;
+}
+
+.header-menu-wrap.open-menu .header-menu-list {
+  opacity: 1;
+}
+
+
+.header-menu-list .header__link {
+  display: block !important;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 100%;
+}
+
+.header-menu-top {
+  display: flex;
+  align-items: center;
+  margin-bottom: 64px;
+  justify-content: space-between;
+}
+
+.header-menu-close {
+  position: relative;
+  width: 40px;
+  height: 26px;
+}
+
+.header-menu-close::before,
+.header-menu-close::after {
+  position: absolute;
+  display: block;
+  content: "";
+  width: 100%;
+  left: 0;
+  top: 13px;
+  background-color: #fff;
+  height: 2px;
+  transform: rotate(0);
+  transition: all 0.6s ease-out;
+}
+
+.header-menu-close::before {
+  top: 4px;
+}
+
+.header-menu-close::after {
+  bottom: 4px;
+}
+
+.header-menu-wrap.open-menu .header-menu-close::before {
+  top: 13px;
+  transform: rotate(-45deg);
+}
+
+.header-menu-wrap.open-menu .header-menu-close::after {
+  top: 13px;
+  transform: rotate(45deg);
 }
