@@ -2602,13 +2602,11 @@ input:checked+label:after {
 .glossary-swiper {
   width: 100svw;
   min-height: calc(100svh - 64px);
-  overflow: unset !important;
   color: #000;
 }
 
 .glossary-swiper .swiper-wrapper {
   position: relative;
-  overflow: unset !important;
   min-height: calc(100svh - 64px);
 }
 
