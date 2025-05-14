@@ -2823,7 +2823,7 @@ input:checked+label:after {
 @media (max-width:1210px) {
 
   .glos-info span {
-    font-size: 20px;
+    font-size: 24px;
   }
 
   .glos-info p {
