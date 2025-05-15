@@ -2601,13 +2601,13 @@ input:checked+label:after {
 
 .glossary-swiper {
   width: 100svw;
-  min-height: calc(100svh - 64px);
+  min-height: 100svh;
   color: #000;
 }
 
 .glossary-swiper .swiper-wrapper {
   position: relative;
-  min-height: calc(100svh - 64px);
+  min-height: 100svh;
 }
 
 .glossary-box {
@@ -2620,8 +2620,8 @@ input:checked+label:after {
 }
 
 .glossary-swiper .swiper-slide {
-  min-height: calc(100svh - 64px);
-  max-height: calc(100svh - 64px);
+  min-height: 100svh;
+  max-height: 100svh;
   height: 100% !important;
   color: #000;
   display: flex;
@@ -2632,14 +2632,14 @@ input:checked+label:after {
 .glos-wrap {
   max-width: 100svw;
   z-index: 999;
-  margin-top: 64px;
+  /* padding-top: 64px; */
 }
 
 .glos-wrap .swiper-pagination {
   opacity: 1 !important;
   transition: all 0.1s ease;
   position: absolute;
-  top: -50px;
+  top: 20px;
   height: 40px;
   left: 50% !important;
   right: unset !important;
@@ -2671,7 +2671,6 @@ input:checked+label:after {
   justify-content: center;
   margin-top: auto;
   height: fit-content;
-  /* padding: 190px 0 250px 0; */
 }
 
 .glos-info span {

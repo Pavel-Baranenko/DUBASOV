@@ -112,6 +112,7 @@ body {
 
 .header__link {
   position: relative;
+  width: fit-content;
 }
 
 .header__link::after {
