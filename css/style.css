@@ -560,11 +560,11 @@ h5 {
   gap: 140px;
 }
 
-.important-buttons button:hover {
+.important-buttons .btn:hover {
   font-size: 31px;
 }
 
-.important-buttons button {
+.important-buttons .btn {
   width: 460px;
   font-size: 30px;
   padding: 15px;
@@ -825,7 +825,7 @@ h5 {
     gap: 20px;
   }
 
-  .important-buttons button {
+  .important-buttons .btn {
     width: 100%;
   }
 
@@ -1046,7 +1046,7 @@ h5 {
     font-size: 25px;
   }
 
-  .important-buttons button {
+  .important-buttons .btn {
     max-width: 90%;
     font-size: 20px;
   }
